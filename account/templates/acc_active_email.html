@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi {{ user.username }},
+Selamat Datang, terima kasih sudah mau mendaftar.Akun anda saat ini belum aktif dan belum bisa digunakana, untuk mengaktifkannya klik link di bawah ini.
+http://{{ domain }}{% url 'account:activate' uidb64=uid token=token %}
+
+Salam dari Admin
+B.X.Nzo
+{% endautoescape %}

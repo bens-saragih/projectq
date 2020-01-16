@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head %}
+	<title>Profile</title>
+{% endblock %}
+
+{% block contents %}
+{% include "snippets/navbar.html" %}
+<div class="row">
+<div class="container">
+	<h3>Profile</h3>
+	<p>Username:{{user}}</p>
+	<p>First name : {{user.first_name}}</p>
+	<p>Last name : {{user.last_name}}</p>
+	<p>email : {{user.email}}</p>
+	<p>Description: {{user.userprofile.description}}</p>
+  <p>Kota: {{user.userprofile.city}}</p>
+	<p>Phone: {{user.userprofile.phone}}</p>
+	<p>Website: {{user.userprofile.website}}</p>
+	<img src="{{ user.userprofile.get_photo_url }}" width="240">
+	    <div class="content-section">
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Ubah Foto</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+              {{e_form|crispy}}
+
+
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+
+  </div>
+  </div>
+</div>
+{% endblock %}

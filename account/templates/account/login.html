@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Login</title>
+{% endblock %}
+
+{% block contents %}
+{% include "snippets/navbar.html" %}
+
+<form method="POST">
+	{% csrf_token %}
+	{{form.as_p}}
+	<button type="submit">Login</button>
+</form>
+{% endblock %}

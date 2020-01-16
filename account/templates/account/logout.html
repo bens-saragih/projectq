@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Logout</title>
+{% endblock %}
+
+{% block contents %}
+
+{% include "snippets/navbar.html" %}
+<p>Kamu sudah logout, jika ingin kembali silakan <a href="{% url 'account:login' %}">Login</a></p>
+{% endblock %}
